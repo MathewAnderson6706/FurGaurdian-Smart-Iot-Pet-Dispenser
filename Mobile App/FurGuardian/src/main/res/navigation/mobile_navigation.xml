@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Justin Chipman - N01598472-->
+<!--Imran Zafurallah - N01585098-->
+<!--Zane Aransevia - N01351168-->
+<!--Tevadi Brookes - N01582563-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="ca.furguardian.it.petwellness.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_health"
+        android:name="ca.furguardian.it.petwellness.ui.health.HealthFragment"
+        android:label="@string/title_health"
+        tools:layout="@layout/fragment_health" />
+
+    <fragment
+        android:id="@+id/navigation_records"
+        android:name="ca.furguardian.it.petwellness.ui.records.RecordsFragment"
+        android:label="@string/Records"
+        tools:layout="@layout/fragment_records" />
+
+    <fragment
+        android:id="@+id/navigation_peted"
+        android:name="ca.furguardian.it.petwellness.ui.peted.PetEd"
+        android:label="@string/title_peted"
+        tools:layout="@layout/fragment_peted" />
+
+    <fragment
+        android:id="@+id/remindersFragment"
+        android:name="ca.furguardian.it.petwellness.ui.menu.RemindersFragment"
+        android:label="Reminders" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ca.furguardian.it.petwellness.ui.menu.SettingsFragment"
+        android:label="Settings" />
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="ca.furguardian.it.petwellness.ui.menu.FeedbackFragment"
+        android:label="Feedback" />
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="ca.furguardian.it.petwellness.ui.menu.AccountFragment"
+        android:label="Account Information" />
+
+    <fragment
+        android:id="@+id/petprofilefragment"
+        android:name="ca.furguardian.it.petwellness.ui.menu.PetFragment"
+        android:label="Pet Profile" />
+
+</navigation>

@@ -1,0 +1,82 @@
+#Install libraries
+sudo apt-get update
+sudo apt-get install wiringpi
+
+#include <stdio.h>
+#include <wiringPi.h>
+#include <wiringPiSPI.h>
+#include "MFRC522.h"
+
+// Define wiringPi SPI channel
+#define SPI_CHANNEL 0
+#define SS_PIN 8     // GPIO 8 (Pin 24)
+#define RST_PIN 25   // GPIO 25 (Pin 22)
+
+void setup() {
+    wiringPiSetup();
+    pinMode(SS_PIN, OUTPUT);
+    digitalWrite(SS_PIN, HIGH); // Set SS high initially
+
+    // Initialize SPI
+    if (wiringPiSPISetup(SPI_CHANNEL, 1000000) < 0) {
+        printf("Failed to set up SPI\n");
+        return;
+    }
+
+    // Initialize the MFRC522 module
+    MFRC522_Init(SPI_CHANNEL, SS_PIN, RST_PIN);
+    printf("Ready to scan a card\n");
+}
+
+void loop() {
+    static uint8_t prevUID[5] = {0}; // Store previous UID to detect new cards
+    uint8_t uid[5];
+    uint8_t status;
+
+    while (1) {
+        // Look for a card
+        status = MFRC522_Request(PICC_REQIDL, uid);
+        if (status == MI_OK) {
+            // Read card's UID
+            status = MFRC522_Anticoll(uid);
+            if (status == MI_OK) {
+                // Check if UID is new
+                int isNewCard = 0;
+                for (int i = 0; i < 5; i++) {
+                    if (uid[i] != prevUID[i]) {
+                        isNewCard = 1;
+                        break;
+                    }
+                }
+
+                // If new card detected, print UID
+                if (isNewCard) {
+                    printf("\nCard found\n");
+                    printf("Cardnumber (Dec): ");
+                    for (int i = 0; i < 5; i++) {
+                        printf("%d ", uid[i]);
+                        prevUID[i] = uid[i];
+                    }
+                    printf("\nCardnumber (Hex): ");
+                    for (int i = 0; i < 5; i++) {
+                        printf("%02X ", uid[i]);
+                    }
+                    printf("\n");
+                } else {
+                    // Print a dot if the same card is detected
+                    printf(".");
+                    fflush(stdout);
+                }
+            }
+        }
+        delay(1000);
+    }
+}
+
+int main() {
+    setup();
+    loop();
+    return 0;
+}
+
+#this is code converted from arduino code into C of a simple program that looks for a card and detects it.

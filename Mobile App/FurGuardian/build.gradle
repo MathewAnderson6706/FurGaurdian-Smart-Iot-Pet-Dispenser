@@ -1,0 +1,111 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+}
+
+android {
+    namespace 'ca.furguardian.it.petwellness'
+    compileSdk 34
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true // Enable Android resources for Robolectric tests
+            all {
+                useJUnitPlatform() // Use JUnit 5 for all unit tests
+            }
+        }
+        unitTests.all {
+            testLogging {
+                events "passed", "skipped", "failed"
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId "ca.furguardian.it.petwellness"
+        minSdk 29
+        targetSdk 34
+        versionCode 2
+        versionName "1.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+}
+
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.viewmodel.ktx
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.legacy.support.v4
+    implementation libs.activity
+    implementation libs.annotation
+    implementation libs.firebase.database
+    implementation libs.firebase.auth
+    implementation libs.recyclerview
+    implementation libs.play.services.location
+    implementation libs.androidx.fragment.testing
+    testImplementation libs.junit
+    testImplementation libs.core
+    testImplementation libs.junit.jupiter
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation libs.core.splashscreen
+    implementation libs.material.v190
+
+    implementation libs.recyclerview
+    // Google Sign-In
+    implementation libs.play.services.auth
+
+    // Firebase Core
+    implementation libs.firebase.auth.v2200
+    androidTestImplementation libs.runner
+    androidTestImplementation libs.androidx.rules
+
+
+    implementation libs.play.services.location.v2101
+
+    // Espresso dependencies
+    androidTestImplementation libs.espresso.core.v351
+    androidTestImplementation libs.espresso.intents
+    androidTestImplementation libs.androidx.junit.v115
+
+// Robolectric dependencies
+    testImplementation libs.robolectric
+
+// JUnit dependencies for both Espresso and Robolectric
+    androidTestImplementation libs.androidx.runner.v150
+
+// Mockito for mocking
+    testImplementation libs.mockito.core
+    testImplementation libs.mockito.inline
+    testImplementation libs.mockito.android
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
+
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+
+
+    testImplementation libs.junit.vintage.engine
+
+}

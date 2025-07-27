@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Justin Chipman - N01598472-->
+<!--Imran Zafurallah - N01585098-->
+<!--Zane Aransevia - N01351168-->
+<!--Tevadi Brookes - N01582563-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/fragment_background">
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:gravity="center">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/create_account"
+    android:textSize="24sp"
+    android:textColor="@color/black"
+    android:background="@drawable/rounded_edittext_background"
+android:fontFamily="sans-serif-medium"
+android:layout_marginBottom="24dp" />
+
+<EditText
+    android:id="@+id/name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/name1"
+    android:background="@drawable/rounded_edittext_background"
+    android:drawablePadding="8dp"
+    android:textColorHint="@color/grey"
+    android:padding="12dp"
+    android:fontFamily="sans-serif"
+    android:inputType="textPersonName" />
+
+<EditText
+    android:id="@+id/phone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/phone_number1"
+    android:textColorHint="@color/grey"
+    android:background="@drawable/rounded_edittext_background"
+    android:drawablePadding="8dp"
+    android:padding="12dp"
+    android:fontFamily="sans-serif"
+    android:inputType="phone"
+    android:layout_marginTop="12dp" />
+
+<EditText
+    android:id="@+id/email"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/email2"
+    android:textColorHint="@color/grey"
+    android:background="@drawable/rounded_edittext_background"
+    android:drawablePadding="8dp"
+    android:padding="12dp"
+    android:fontFamily="sans-serif"
+    android:inputType="textEmailAddress"
+    android:layout_marginTop="12dp" />
+
+<EditText
+    android:id="@+id/password"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/password3"
+    android:textColorHint="@color/grey"
+    android:background="@drawable/rounded_edittext_background"
+    android:drawablePadding="8dp"
+    android:padding="12dp"
+    android:fontFamily="sans-serif"
+    android:inputType="textPassword"
+    android:layout_marginTop="12dp" />
+
+<EditText
+    android:id="@+id/confirmPassword"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/confirm_password"
+    android:textColorHint="@color/grey"
+    android:background="@drawable/rounded_edittext_background"
+    android:drawablePadding="8dp"
+    android:padding="12dp"
+    android:fontFamily="sans-serif"
+    android:inputType="textPassword"
+    android:layout_marginTop="12dp" />
+
+<Button
+    android:id="@+id/registerButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/sign_up"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:fontFamily="sans-serif-medium"
+    android:layout_marginTop="24dp"
+    android:padding="12dp" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/already_have_an_account_log_in"
+    android:fontFamily="sans-serif"
+    android:layout_marginTop="16dp"
+    android:textSize="14sp"
+    android:onClick="goToLoginActivity" />
+
+</LinearLayout>
+    </ScrollView>
